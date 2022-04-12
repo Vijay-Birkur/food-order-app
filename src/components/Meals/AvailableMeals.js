@@ -33,7 +33,7 @@ const STATIC_MEALS = [
 const AvailableMeals = () => {
     const mealsList= STATIC_MEALS.map((e) => {
         return (
-            <MealItem name={e.name} description={e.description} price={e.price} />
+            <MealItem key={e.id} id={e.id} name={e.name} description={e.description} price={e.price} />
         );
     })
     return (
