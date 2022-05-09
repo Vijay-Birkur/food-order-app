@@ -3,9 +3,9 @@ import { useRef, useState } from 'react';
 import classes from './AddressForm.module.css';
 
 const isEmpty = (value) => value.trim() === '';
-const isFiveChars = (value) => value.trim().length === 5;
+const isSixChars = (value) => value.trim().length === 6;
 
-const Checkout = (props) => {
+const AddressForm = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
     name: true,
     street: true,
@@ -29,7 +29,7 @@ const Checkout = (props) => {
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode);
+    const enteredPostalCodeIsValid = isSixChars(enteredPostalCode);
 
     setFormInputsValidity({
       name: enteredNameIsValid,
@@ -71,6 +71,7 @@ const Checkout = (props) => {
 
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
+      <h2 style={{color:'#8a2b06'}}>Drop your Address Details:</h2>
       <div className={nameControlClasses}>
         <label htmlFor='name'>Your Name</label>
         <input type='text' id='name' ref={nameInputRef} />
@@ -103,4 +104,4 @@ const Checkout = (props) => {
   );
 };
 
-export default Checkout;
+export default AddressForm;
